@@ -1,16 +1,16 @@
-from library_oop import Member
-member = Member(101, "Alice Smith", "alice@email.com")
+from library_oop import Library
+library = Library()
 
-print(member) #Show __str__ method
-print("Borrowing 2 books...")
-member.borrow_book(1)
-member.borrow_book(2)
-member.borrow_book(3)
-print(f"Borrowed books lists: {member.borrowed_books}")
+print("=== Testing Library Class ===")
+library.add_book(1, "Clean Code", "Robert Martin", 2)
+library.add_book(2, "Design Patterns", "Gang of Four", 1)
+library.add_member(101, "Bob Jones", "bob@email.com")
 
-# Overlimit borrowing
-member.borrow_book(4)
+library.display_available_books()
 
-print("Returning book...")
-member.return_book(2)
-print(f"Borrowed books lists: {member.borrowed_books}")
+library.borrow_book(101, 1)
+library.borrow_book(101, 2)
+library.display_member_books(101)
+
+library.return_book(101, 1)
+library.display_available_books()
